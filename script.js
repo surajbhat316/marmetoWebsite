@@ -49,7 +49,7 @@
         for(let i = 0; i< images.length; i++){
             let elem = `
                 <div class="image">
-                    <img src="${images[i].src}" alt="" width="70px" height="70px">
+                    <img class="image" src="${images[i].src}" alt="" width="70px" height="70px">
                 </div>
             `;
             bottomImages.innerHTML +=elem;
@@ -84,6 +84,18 @@
 
 
     document.addEventListener('click',function(e){
+        console.log(e.target.classList)
+
+        if(e.target.classList.contains("image")){
+            console.log("Enters Image ", e.target.src);
+            let productImage = document.getElementById("product_image");
+            productImage.innerHTML = `
+            <img src="${e.target.src}" alt="">
+            `;
+            return;
+        }
+
+
         let colorValue = (e.target.id);
         console.log(colorValue)
         switch(colorValue){
