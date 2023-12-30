@@ -5,6 +5,12 @@
     const price = document.getElementById("price");
     const strikedprice = document.getElementById("striked_price");
     const colours = document.getElementById("colours");
+    const chooseASize = document.getElementById("choose_a_size");
+    const description = document.getElementById("description");
+
+
+
+
 
 
     let product = {};
@@ -13,8 +19,7 @@
         let data = await res.json();
         product = data.product;
         let colourValues = product.options[0].values;
-        
-
+        let sizeValues = product.options[1].values;
         
         vendor.innerHTML = `<p>${product.vendor}</p>`;
         title.innerHTML = `<p>${product.title}</p>`
@@ -25,12 +30,21 @@
         let index = 0;
         for(let values of colourValues){
             let elem = document.createElement('div');
-            elem.style.width = "30px";
-            elem.style.height = "30px";
+            elem.style.width = "50px";
+            elem.style.height = "50px";
+            elem.style.marginRight = "14px";
             elem.style.backgroundColor = colourValues[index][col[index]];
             index++;
             colours.appendChild(elem)
         }
+
+        // for(let size of sizeValues){
+        //     let elem = `<input type="radio" class="chooseASize" name="chooseASize" id="${size}"> ${size}`
+        //     chooseASize.innerHTML += elem;
+        // }
+
+        description.innerHTML = product.description;
+
 
     }
     getData();
