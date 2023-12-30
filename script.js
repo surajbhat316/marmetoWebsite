@@ -8,6 +8,8 @@
     const chooseASize = document.getElementById("choose_a_size");
     const description = document.getElementById("description");
 
+    const bottomImages = document.getElementById("bottom_images");
+
 
 
 
@@ -20,7 +22,8 @@
         product = data.product;
         let colourValues = product.options[0].values;
         let sizeValues = product.options[1].values;
-        
+        let images = product.images;
+
         vendor.innerHTML = `<p>${product.vendor}</p>`;
         title.innerHTML = `<p>${product.title}</p>`
         price.innerHTML = `${product.price}`;
@@ -45,6 +48,15 @@
 
         description.innerHTML = product.description;
 
+        for(let i = 0; i< images.length; i++){
+            let elem = `
+                <div class="image">
+                    <img src="${images[i].src}" alt="" width="70px" height="70px">
+                </div>
+            `;
+            bottomImages.innerHTML +=elem;
+
+        }
 
     }
     getData();
