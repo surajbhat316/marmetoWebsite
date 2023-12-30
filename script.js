@@ -10,13 +10,6 @@
 
     const bottomImages = document.getElementById("bottom_images");
 
-    let countValue = document.getElementById("countValue").innerText;
-    console.log(countValue)
-
-
-
-
-
     let product = {};
     async function getData(){
         let res = await fetch("https://cdn.shopify.com/s/files/1/0564/3685/0790/files/singleProduct.json?v=1701948448");
@@ -79,12 +72,14 @@
             }
         }
         console.log(selectedColor)
-        let message = document.getElementById("message");
-        message.innerHTML = `Embrace Sideboard with Color ${selectedColor} and Size ${selectedSize} added to cart`
-        if(message.classList.contains("displayNone")){
-            message.classList.remove("displayNone");
+        if(selectedColor && selectedSize){
+            let message = document.getElementById("message");
+            message.innerHTML = `Embrace Sideboard with Color ${selectedColor} and Size ${selectedSize} added to cart`
+            if(message.classList.contains("displayNone")){
+                message.classList.remove("displayNone");
+            }
+            message.classList.add("displayBlock");
         }
-        message.classList.add("displayBlock");
     })
 
 
@@ -131,6 +126,22 @@
         }
     }
 
+    let countSpan = document.getElementById("countValue");
+    let countValue = document.getElementById("countValue").innerText;
+    console.log(countValue)
 
+    let incrementBtn = document.getElementById("incrementBtn");
+    let decrementBtn = document.getElementById("decrementBtn");
+    incrementBtn.addEventListener('click', function(e){
+        countValue = parseInt(countValue) + 1;
+        countSpan.innerHTML = `${countValue}`
+    })
 
+    decrementBtn.addEventListener('click', function(e){
+        if(countValue === 0){
+            return;
+        }
+        countValue = parseInt(countValue) - 1;
+        countSpan.innerHTML = `${countValue}`
+    })
 }
