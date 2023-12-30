@@ -175,3 +175,26 @@ body{
 .bottom_images div img{
     border-radius: 10px;
 }
+
+#message{
+    margin-top: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16.94px;
+    text-align: center;
+    background-color: #E7F8B7;
+    width: 495px;
+    height: 31px;
+    border-radius: 8px;
+}
+
+.displayNone{
+    display: none;
+}
+.displayBlock{
+    display: block;
+}
+
+.border{
+    border: 3px solid darkblue;
+}

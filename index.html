@@ -52,32 +52,33 @@
             <div id="choose_a_size">
                 <p>Choose a size</p>
                 <span>
-                    <input type="radio" class="chooseASize" name="chooseASize" id="Small"> Small
+                    <input type="radio" class="chooseASize" name="chooseASize" id="Small" value="Small"> Small
                 </span>
                 <span>
-                    <input type="radio" class="chooseASize" name="chooseASize" id="Medium"> Medium
+                    <input type="radio" class="chooseASize" name="chooseASize" id="Medium" value="Medium"> Medium
                 </span>
                 <span>
-                    <input type="radio" class="chooseASize" name="chooseASize" id="Large"> Large
+                    <input type="radio" class="chooseASize" name="chooseASize" id="Large" value="Large"> Large
                 </span>
                 <span>
-                    <input type="radio" class="chooseASize" name="chooseASize" id="Extra Large"> Extra Large
+                    <input type="radio" class="chooseASize" name="chooseASize" id="Extra Large" value="Extra Latge"> Extra Large
                 </span>
                 <span>
-                    <input type="radio" class="chooseASize" name="chooseASize" id="XXL"> XXL
+                    <input type="radio" class="chooseASize" name="chooseASize" id="XXL" value="XXL"> XXL
                 </span>
             </div>
 
             <div id="add_to_cart_container">
                 <div class="increment_and_decrement">
                     <button>-</button>
-                    1
+                    <span id="countValue">1</span>
                     <button>+</button>
                 </div>
                 <div class="add_to_cart">
-                    <button>Add to cart</button>
+                    <button id="addToCartBtn">Add to cart</button>
                 </div>
             </div>
+            <div id="message" class="displayNone">Embrace Sideboard with Color Yellow and Size Small added to cart</div>
             <hr class="horizontalRule"/>
 
             <div id="description">

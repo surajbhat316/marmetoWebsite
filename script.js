@@ -10,6 +10,8 @@
 
     const bottomImages = document.getElementById("bottom_images");
 
+    let countValue = document.getElementById("countValue").innerText;
+    console.log(countValue)
 
 
 
@@ -32,7 +34,10 @@
         let col = ["Yellow", "Green", "Blue", "Pink"];
         let index = 0;
         for(let values of colourValues){
+            console.log(Object.keys(values)[0])
             let elem = document.createElement('div');
+            elem.id = Object.keys(values)[0]+"";
+            elem.classList.add("colors")
             elem.style.width = "50px";
             elem.style.height = "50px";
             elem.style.marginRight = "14px";
@@ -60,5 +65,72 @@
 
     }
     getData();
+
+    const addToCartBtn = document.getElementById("addToCartBtn");
+
+    let selectedSize;
+    let selectedColor;
+    addToCartBtn.addEventListener('click', function(e){
+        let radioInputs = document.getElementsByClassName("chooseASize");
+        for(let inputs of radioInputs){
+            if(inputs.checked){
+                selectedSize = inputs.value;
+                console.log(selectedSize)
+            }
+        }
+        console.log(selectedColor)
+        let message = document.getElementById("message");
+        message.innerHTML = `Embrace Sideboard with Color ${selectedColor} and Size ${selectedSize} added to cart`
+        if(message.classList.contains("displayNone")){
+            message.classList.remove("displayNone");
+        }
+        message.classList.add("displayBlock");
+    })
+
+
+    document.addEventListener('click',function(e){
+        let colorValue = (e.target.id);
+        console.log(colorValue)
+        switch(colorValue){
+            case "Yellow":
+                clearClass();
+                let yellowColor = document.getElementById("Yellow");
+                yellowColor.classList.add("border");
+                selectedColor = "Yellow";
+                return;
+            case "Green":
+                clearClass();
+                let greenColor = document.getElementById("Green");
+                greenColor.classList.add("border");
+                selectedColor = "Green";
+                return;
+            case "Blue":
+                clearClass();
+                let blueColor = document.getElementById("Blue");
+                blueColor.classList.add("border");
+                selectedColor = "Blue";
+                return;
+            case "Pink":
+                clearClass();
+                let pinkColor = document.getElementById("Pink");
+                pinkColor.classList.add("border");
+                selectedColor = "Pink";
+                return;
+            default:
+                return;
+        }
+
+    });
+
+    function clearClass(){
+        let colors = document.getElementsByClassName("colors");
+        for(let color of colors){
+            if(color.classList.contains("border")){
+                color.classList.remove("border");
+            }
+        }
+    }
+
+
 
 }
